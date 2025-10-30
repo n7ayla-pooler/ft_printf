@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdnahal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abdnahal <abdnahal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:01:40 by abdnahal          #+#    #+#             */
-/*   Updated: 2025/10/29 17:22:03 by abdnahal         ###   ########.fr       */
+/*   Updated: 2025/10/30 11:37:52 by abdnahal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_putnbr_fd(int n, int fd)
 	if (n == -2147483648)
 	{
 		count = write(fd, "-2147483648", 11);
-		return (count + 1);
+		return (count);
 	}
 	if (n < 0)
 	{
@@ -30,7 +30,7 @@ int	ft_putnbr_fd(int n, int fd)
 	if (n <= 9)
 	{
 		c = n + '0';
-		write(fd, &c, 1);
+		count = write(fd, &c, 1);
 	}
 	else
 	{
@@ -46,7 +46,7 @@ int	ft_putstr_fd(const char *s, int fd)
 	int	count;
 
 	if (!s)
-		return (write(1, "(null)", 6));
+		return (write(fd, "(null)", 6));
 	count = write(fd, s, ft_strlen(s));
 	return (count);
 }

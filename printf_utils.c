@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdnahal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abdnahal <abdnahal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:01:21 by abdnahal          #+#    #+#             */
-/*   Updated: 2025/10/29 17:16:07 by abdnahal         ###   ########.fr       */
+/*   Updated: 2025/10/30 11:36:17 by abdnahal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,20 @@
 int	print_hexa_l(long long nb)
 {
 	char	*base;
-	char	c;
 	int		count;
 
-	count = 0;
 	base = "0123456789abcdef";
 	if (nb < 0)
 	{
-		count += write(1, "-", 1);
+		count = write(1, "-", 1);
 		nb = -nb;
 	}
 	if (nb <= 16)
-		count += write(1, &base[nb], 1);
+		count = write(1, &base[nb], 1);
 	else
 	{
 		count = print_hexa_l(nb / 16);
-		c = base[nb % 16];
-		write(1, &c, 1);
+		write(1, &base[nb % 16], 1);
 	}
 	return (count + 1);
 }
@@ -61,46 +58,24 @@ int	print_hexa_u(long long nb)
 	return (count + 1);
 }
 
-// int count_hex(long long nb)
-// {
-//     int co;
-//     co = 0;
-//     while(nb)
-//     {
-//         nb /= 16;
-//         co++;
-//     }
-//     return (co);
-// }
-
-// int count_num(long long nb)
-// {
-//     int co;
-//     co = 0;
-//     while(nb)
-//     {
-//         nb /= 10;
-//         co++;
-//     }
-//     return (co);
-
-// }
-
 int	print_u(unsigned int x)
 {
 	char	c;
 	int		count;
 
-	count = 0;
-	if (x < 9)
+	if (x <= 9)
 	{
 		c = x + '0';
-		count += write(1, &c, 1);
+		count = write(1, &c, 1);
 		return (count);
 	}
-	print_u(x / 10);
-	c = x % 10 + '0';
-	count += write(1, &c, 1);
+	else 
+	{
+		count = print_u(x / 10);
+		c = x % 10 + '0';
+		write(1, &c, 1);
+	}
+	
 	return (count + 1);
 }
 
@@ -111,9 +86,8 @@ int	print_p(void *p)
 
 	if (!p)
 		return (write(1, "(nil)", 5));
-	count = 2;
 	pr = (long long)p;
-	write(1, "0x", 2);
+	count = write(1, "0x", 2);
 	count += print_hexa_l(pr);
 	return (count);
 }
