@@ -6,7 +6,7 @@
 /*   By: abdnahal <abdnahal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:01:40 by abdnahal          #+#    #+#             */
-/*   Updated: 2025/10/30 11:37:52 by abdnahal         ###   ########.fr       */
+/*   Updated: 2025/10/30 11:51:45 by abdnahal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int	ft_putnbr_fd(int n, int fd)
 
 	if (n == -2147483648)
 	{
-		count = write(fd, "-2147483648", 11);
-		return (count);
+		return (write(fd, "-2147483648", 11));
 	}
 	if (n < 0)
 	{
@@ -59,7 +58,7 @@ int	ft_putchar_fd(char c, int fd)
 
 size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

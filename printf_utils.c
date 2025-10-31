@@ -6,7 +6,7 @@
 /*   By: abdnahal <abdnahal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:01:21 by abdnahal          #+#    #+#             */
-/*   Updated: 2025/10/30 11:36:17 by abdnahal         ###   ########.fr       */
+/*   Updated: 2025/10/30 11:56:06 by abdnahal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,24 +69,23 @@ int	print_u(unsigned int x)
 		count = write(1, &c, 1);
 		return (count);
 	}
-	else 
+	else
 	{
 		count = print_u(x / 10);
 		c = x % 10 + '0';
 		write(1, &c, 1);
 	}
-	
 	return (count + 1);
 }
 
 int	print_p(void *p)
 {
-	long long	pr;
+	unsigned long long	pr;
 	int			count;
 
 	if (!p)
 		return (write(1, "(nil)", 5));
-	pr = (long long)p;
+	pr = (unsigned long long)p;
 	count = write(1, "0x", 2);
 	count += print_hexa_l(pr);
 	return (count);

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdnahal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abdnahal <abdnahal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:06:04 by abdnahal          #+#    #+#             */
-/*   Updated: 2025/10/29 17:16:18 by abdnahal         ###   ########.fr       */
+/*   Updated: 2025/10/30 11:44:06 by abdnahal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FTPRINTF_H
-# define FTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
 # include <stddef.h>
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+
 int		print_p(void *p);
 // int count_num(long long nbr);
 // int count_hex(long long nbr);
