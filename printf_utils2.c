@@ -6,7 +6,7 @@
 /*   By: abdnahal <abdnahal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:01:40 by abdnahal          #+#    #+#             */
-/*   Updated: 2025/10/30 11:51:45 by abdnahal         ###   ########.fr       */
+/*   Updated: 2025/10/31 10:40:02 by abdnahal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_putnbr_fd(int n, int fd)
 	if (n <= 9)
 	{
 		c = n + '0';
-		count = write(fd, &c, 1);
+		return (write(fd, &c, 1));
 	}
 	else
 	{

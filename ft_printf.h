@@ -6,7 +6,7 @@
 /*   By: abdnahal <abdnahal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:06:04 by abdnahal          #+#    #+#             */
-/*   Updated: 2025/10/30 11:44:06 by abdnahal         ###   ########.fr       */
+/*   Updated: 2025/10/31 11:14:36 by abdnahal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@
 # include <unistd.h>
 # include <limits.h>
 
+int     ft_printf(const char *s, ...);
 int		print_p(void *p);
-// int count_num(long long nbr);
-// int count_hex(long long nbr);
-int		print_hexa_u(long long nb);
-int		print_hexa_l(long long nb);
+int		print_hexa_u(unsigned long nb);
+int		print_hexa_l(unsigned long nb);
 int		ft_putnbr_fd(int n, int fd);
 int		ft_putstr_fd(const char *str, int fd);
 int		ft_putchar_fd(char c, int fd);

@@ -6,7 +6,7 @@
 /*   By: abdnahal <abdnahal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:01:04 by abdnahal          #+#    #+#             */
-/*   Updated: 2025/10/30 11:58:05 by abdnahal         ###   ########.fr       */
+/*   Updated: 2025/11/01 11:28:04 by abdnahal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,11 @@ int	ft_printf(const char *s, ...)
 	{
 		if (s[i] == '%')
 		{
-			if (is_in(s[i + 1], str) && s[i + 1])
+			if (s[i + 1] && is_in(s[i + 1], str))
+			{
 				count += format_parser(&s[i + 1], args);
-			i++;
+				i++;
+			}
 		}
 		else
 			count += write(1, &s[i], 1);
@@ -78,74 +80,10 @@ int	ft_printf(const char *s, ...)
 }
 
 int	main(void)
-
 {
-	printf("%d", ft_printf(""));
+	int	len;
+
+	len = printf("Hello %s, your score is %d out of %u. Hex: %x, Pointer: %p, Percent: %%\n", "Alice", -42, 100u, 255, &len);
+	printf("Length printed: %d\n", len);
+	return (0);
 }
-
-// int main(void)
-// {
-//     int ret1, ret2;
-
-//     printf("=== 🧩 FT_PRINTF TESTS ===\n\n");
-
-//     // Characters
-//     printf("1️⃣ Char test:\n");
-//     ret1 = ft_printf("ft_printf: %c\n\n", 'A');
-//     ret2 = printf("printf   : %c\n\n", 'A');
-//     printf("Return values: ft_printf = %d | printf = %d\n\n", ret1, ret2);
-
-//     // Strings
-//     printf("2️⃣ String test:\n");
-//     ret1 = ft_printf("ft_printf: %s\n\n", "Hello 42");
-//     ret2 = printf("printf   : %s\n\n", "Hello 42");
-//     printf("Return values: ft_printf = %d | printf = %d\n\n", ret1, ret2);
-
-//     // NULL string
-//     printf("3️⃣ NULL string:\n");
-//     ret1 = ft_printf("ft_printf: %s\n\n", (char *)NULL);
-//     ret2 = printf("printf   : %s\n\n", (char *)NULL);
-//     printf("Return values: ft_printf = %d | printf = %d\n\n", ret1, ret2);
-
-//     // Integers
-//     printf("4️⃣ Integers:\n");
-//     ret1 = ft_printf("%d|%i\n", 42, -42);
-//     ret2 = printf("%d|%i\n", 42, -42);
-//     printf("Return values: ft_printf = %d | printf = %d\n\n", ret1, ret2);
-
-//     // Unsigned
-//     printf("5️⃣ Unsigned:\n");
-//     ret1 = ft_printf("ft_printf: %u\n\n", 4294967295u);
-//     ret2 = printf("printf   : %u\n\n", 4294967295u);
-//     printf("Return values: ft_printf = %d | printf = %d\n\n", ret1, ret2);
-
-//     // Hexadecimal
-//     printf("6️⃣ Hexadecimal:\n");
-//     ret1 = ft_printf("ft_printf: %x | %X\n\n", 255, 255);
-//     ret2 = printf("printf   : %x | %X\n\n", 255, 255);
-//     printf("Return values: ft_printf = %d | printf = %d\n\n", ret1, ret2);
-
-//     // Pointer
-//     printf("7️⃣ Pointer:\n");
-//     void *ptr = (void *)0x1234abcd;
-//     ret1 = ft_printf("ft_printf: %p\n\n", ptr);
-//     ret2 = printf("printf   : %p\n\n", ptr);
-//     printf("Return values: ft_printf = %d | printf = %d\n\n", ret1, ret2);
-
-//     // Percent sign
-//     printf("8️⃣ Percent sign:\n");
-//     ret1 = ft_printf("ft_printf: 100%% sure\n\n");
-//     ret2 = printf("printf   : 100%% sure\n\n");
-//     printf("Return values: ft_printf = %d | printf = %d\n\n", ret1, ret2);
-
-//     // Mixed format
-//     printf("9️⃣ Mixed format:\n");
-//     ret1 = ft_printf("ft_printf: %c %s %d %u %x %p %%\n\n", 'A', "Hello",
-// -42, 42, 255, ptr);
-//     ret2 = printf("printf   : %c %s %d %u %x %p %%\n\n", 'A', "Hello", -42,
-// 42, 255, ptr);
-//     printf("Return values: ft_printf = %d | printf = %d\n\n", ret1, ret2);
-
-//     printf("✅ Tests completed!\n");
-//     return (0);
-// }
