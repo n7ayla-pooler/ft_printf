@@ -6,7 +6,7 @@
 /*   By: abdnahal <abdnahal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:01:40 by abdnahal          #+#    #+#             */
-/*   Updated: 2025/10/31 10:40:02 by abdnahal         ###   ########.fr       */
+/*   Updated: 2025/11/02 09:17:56 by abdnahal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,22 @@ int	ft_putnbr_fd(int n, int fd)
 	char	c;
 	int		count;
 
+	count = 0;
 	if (n == -2147483648)
-	{
 		return (write(fd, "-2147483648", 11));
-	}
 	if (n < 0)
 	{
-		count = write(fd, "-", 1);
+		count += write(fd, "-", 1);
 		n = -n;
 	}
 	if (n <= 9)
 	{
 		c = n + '0';
-		return (write(fd, &c, 1));
+		return (write(fd, &c, 1) + count);
 	}
 	else
 	{
-		count = ft_putnbr_fd(n / 10, fd);
+		count += ft_putnbr_fd(n / 10, fd);
 		c = n % 10 + '0';
 		write(fd, &c, 1);
 	}

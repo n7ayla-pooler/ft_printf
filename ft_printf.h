@@ -13,14 +13,14 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include <limits.h>
 # include <stdarg.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
 
-int     ft_printf(const char *s, ...);
+int		ft_printf(const char *s, ...);
 int		print_p(void *p);
 int		print_hexa_u(unsigned long nb);
 int		print_hexa_l(unsigned long nb);

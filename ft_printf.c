@@ -6,7 +6,7 @@
 /*   By: abdnahal <abdnahal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:01:04 by abdnahal          #+#    #+#             */
-/*   Updated: 2025/11/01 11:28:04 by abdnahal         ###   ########.fr       */
+/*   Updated: 2025/11/02 09:16:29 by abdnahal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,9 @@ int	is_in(char c, char *s)
 int	ft_printf(const char *s, ...)
 {
 	char	*str;
-	int		count;
-	int		i;
 	va_list	args;
 
+	int count, (i);
 	if (!s)
 		return (-1);
 	str = "cspdiuxX%";
@@ -66,10 +65,8 @@ int	ft_printf(const char *s, ...)
 		if (s[i] == '%')
 		{
 			if (s[i + 1] && is_in(s[i + 1], str))
-			{
 				count += format_parser(&s[i + 1], args);
-				i++;
-			}
+			i++;
 		}
 		else
 			count += write(1, &s[i], 1);
@@ -79,11 +76,8 @@ int	ft_printf(const char *s, ...)
 	return (count);
 }
 
-int	main(void)
-{
-	int	len;
-
-	len = printf("Hello %s, your score is %d out of %u. Hex: %x, Pointer: %p, Percent: %%\n", "Alice", -42, 100u, 255, &len);
-	printf("Length printed: %d\n", len);
-	return (0);
-}
+// int	main(void)
+// {
+// 	printf("%d\n", printf(" %i ", -9));
+// 	printf("%d\n", ft_printf(" %i ", -9));
+// }

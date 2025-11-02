@@ -6,7 +6,7 @@
 /*   By: abdnahal <abdnahal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:01:21 by abdnahal          #+#    #+#             */
-/*   Updated: 2025/11/01 11:12:11 by abdnahal         ###   ########.fr       */
+/*   Updated: 2025/11/02 09:03:01 by abdnahal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ int	print_hexa_l(unsigned long nb)
 {
 	char	*base;
 	int		count;
-	
+
 	count = 0;
 	base = "0123456789abcdef";
 	if (nb < 16)
 		return (write(1, &base[nb], 1));
 	else
 	{
-		print_hexa_l(nb / 16);
+		count += print_hexa_l(nb / 16);
 		write(1, &base[nb % 16], 1);
 	}
 	return (count + 1);
@@ -41,7 +41,7 @@ int	print_hexa_u(unsigned long nb)
 		return (write(1, &base[nb], 1));
 	else
 	{
-		print_hexa_u(nb / 16);
+		count += print_hexa_u(nb / 16);
 		c = base[nb % 16];
 		write(1, &c, 1);
 	}
@@ -71,7 +71,7 @@ int	print_u(unsigned int x)
 int	print_p(void *p)
 {
 	unsigned long	pr;
-	int					count;
+	int				count;
 
 	if (!p)
 		return (write(1, "(nil)", 5));
